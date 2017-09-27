@@ -7,24 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SayHello
+namespace ComplexTypes
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Ingredient
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ingredient()
+        public Customer()
         {
-            this.RecipeIngredients = new HashSet<RecipeIngredient>();
+            this.HomeAddress = new Address();
+            this.BusinessAddress = new Address();
         }
     
-        public int IngredientID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int CustomerId { get; set; }
+        public string FirstName { get; set; }
+        public string Surname { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }
+        public Address HomeAddress { get; set; }
+        public Address BusinessAddress { get; set; }
     }
 }

@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /Create dbo.Recipe.sql
+/materials/materials/C#

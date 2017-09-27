@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayHello", "SayHello\SayHello.csproj", "{504E604F-8547-4AE2-9AC2-8648051F4DAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexTypes", "ComplexTypes\ComplexTypes.csproj", "{FB0F018C-0DB9-4A2B-9213-67C277F863EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{504E604F-8547-4AE2-9AC2-8648051F4DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504E604F-8547-4AE2-9AC2-8648051F4DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{504E604F-8547-4AE2-9AC2-8648051F4DAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0F018C-0DB9-4A2B-9213-67C277F863EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0F018C-0DB9-4A2B-9213-67C277F863EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0F018C-0DB9-4A2B-9213-67C277F863EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0F018C-0DB9-4A2B-9213-67C277F863EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

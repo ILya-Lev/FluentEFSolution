@@ -13,16 +13,13 @@
         <EntityTypeShape EntityType="FluentEFChapter01Model.RecipeStep" Width="2" PointX="5.625" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="FluentEFChapter01Model.RecipeType" Width="2" PointX="5.625" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FluentEFChapter01Model.Unit" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FluentEFChapter01Model.WeightByUnit" Width="1.5" PointX="8.875" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_RecipeIngredient_Ingredient" ManuallyRouted="false" />
-        <AssociationConnector Association="FluentEFChapter01Model.FK_WeightByUnit_Ingredient" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_Recipe_RecipeCategory" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_Recipe_RecipeType" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_RecipeIngredient_Recipe" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_RecipeStep_Recipe" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_RecipeIngredient_Unit" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.FK_RecipeIngredient_Unit1" ManuallyRouted="false" />
-        <AssociationConnector Association="FluentEFChapter01Model.FK_WeightByUnit_Unit" ManuallyRouted="false" />
         <AssociationConnector Association="FluentEFChapter01Model.RecipePan" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

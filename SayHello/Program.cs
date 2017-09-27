@@ -14,10 +14,10 @@ namespace SayHello
 		{
 			using (var context = new FluentEFChapter01Entities())
 			{
-				var dataToPrint = context.Recipes.Select(r => new { r.Title, r.RecipeType.Description }).ToList();
+				var dataToPrint = context.Recipes.Select(r => new { r.RecipeName, r.RecipeType.Description }).ToList();
 				foreach (var item in dataToPrint)
 				{
-					Console.WriteLine($"{item.Title} {item.Description}");
+					Console.WriteLine($"{item.RecipeName} {item.Description}");
 				}
 			}
 		}

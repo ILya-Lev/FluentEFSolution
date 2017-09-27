@@ -1,31 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{504E604F-8547-4AE2-9AC2-8648051F4DAC}</ProjectGuid>
+    <ProjectGuid>{FB0F018C-0DB9-4A2B-9213-67C277F863EF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SayHello</RootNamespace>
-    <AssemblyName>SayHello</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComplexTypes</RootNamespace>
+    <AssemblyName>ComplexTypes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,9 +35,11 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -66,94 +54,100 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hello.Context.cs">
+    <Compile Include="Address.cs">
+      <DependentUpon>ComplexTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComplexTypes.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hello.Context.tt</DependentUpon>
+      <DependentUpon>ComplexTypes.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hello.cs">
+    <Compile Include="ComplexTypes.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hello.tt</DependentUpon>
+      <DependentUpon>ComplexTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hello.Designer.cs">
+    <Compile Include="ComplexTypes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Hello.edmx</DependentUpon>
+      <DependentUpon>ComplexTypes.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Ingredient.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pan.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
+    <Compile Include="Customer.cs">
+      <DependentUpon>ComplexTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
+    <Compile Include="SplitCustomer.cs">
+      <DependentUpon>SplitModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipeCategory.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
+    <Compile Include="SplitModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SplitModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipeIngredient.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
+    <Compile Include="SplitModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SplitModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecipeStep.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
+    <Compile Include="SplitModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SplitModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="RecipeType.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Unit.cs">
-      <DependentUpon>Hello.tt</DependentUpon>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>ComplexTypes.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="Hello.edmx">
+    <None Include="App.config" />
+    <EntityDeploy Include="ComplexTypes.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Hello.Designer.cs</LastGenOutput>
+      <LastGenOutput>ComplexTypes.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Hello.edmx.diagram">
-      <DependentUpon>Hello.edmx</DependentUpon>
+    <None Include="ComplexTypes.edmx.diagram">
+      <DependentUpon>ComplexTypes.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="SplitModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SplitModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SplitModel.edmx.diagram">
+      <DependentUpon>SplitModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FluentEFChapter01.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FluentEFChapter01_log.ldf">
-      <DependentUpon>FluentEFChapter01.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Hello.Context.tt">
+    <Content Include="ComplexTypes.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hello.edmx</DependentUpon>
-      <LastGenOutput>Hello.Context.cs</LastGenOutput>
+      <DependentUpon>ComplexTypes.edmx</DependentUpon>
+      <LastGenOutput>ComplexTypes.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Hello.tt">
+    <Content Include="ComplexTypes.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hello.edmx</DependentUpon>
-      <LastGenOutput>Hello.cs</LastGenOutput>
+      <DependentUpon>ComplexTypes.edmx</DependentUpon>
+      <LastGenOutput>ComplexTypes.cs</LastGenOutput>
+    </Content>
+    <Content Include="SplitModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SplitModel.edmx</DependentUpon>
+      <LastGenOutput>SplitModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SplitModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SplitModel.edmx</DependentUpon>
+      <LastGenOutput>SplitModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

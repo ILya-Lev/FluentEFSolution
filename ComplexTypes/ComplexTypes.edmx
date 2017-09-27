@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FluentEFChapter04Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeAddressStreet" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeAddressCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeAddressState" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeAddressZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessAddressSteet" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessAddressCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessAddressZip" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinesAddressState" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressStreet" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressState" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressZip" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="FluentEFChapter04ModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FluentEFChapter04Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAddress" Type="FluentEFChapter04Model.Address" Nullable="false" />
+          <Property Name="BusinessAddress" Type="FluentEFChapter04Model.Address" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="FluentEFChapter04Model.Address" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ComplexTypesCustomer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+        </EntityContainer>
+        <ComplexType Name="Address">
+          <Property Type="String" Name="Street" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Zip" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FluentEFChapter04ModelStoreContainer" CdmEntityContainer="ComplexTypesCustomer">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="FluentEFChapter04Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ComplexProperty Name="HomeAddress">
+                  <ScalarProperty Name="Zip" ColumnName="HomeAddressZip" />
+                  <ScalarProperty Name="State" ColumnName="HomeAddressState" />
+                  <ScalarProperty Name="City" ColumnName="HomeAddressCity" />
+                  <ScalarProperty Name="Street" ColumnName="HomeAddressStreet" />
+                </ComplexProperty>
+                <ComplexProperty Name="BusinessAddress">
+                  <ScalarProperty Name="State" ColumnName="BusinesAddressState" />
+                  <ScalarProperty Name="Zip" ColumnName="BusinessAddressZip" />
+                  <ScalarProperty Name="City" ColumnName="BusinessAddressCity" />
+                  <ScalarProperty Name="Street" ColumnName="BusinessAddressSteet" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="FluentEFChapter04Model.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+                <ScalarProperty Name="ContactSurname" ColumnName="ContactSurname" />
+                <ComplexProperty Name="Address">
+                  <ScalarProperty Name="Zip" ColumnName="AddressZip" />
+                  <ScalarProperty Name="State" ColumnName="AddressState" />
+                  <ScalarProperty Name="City" ColumnName="AddressCity" />
+                  <ScalarProperty Name="Street" ColumnName="AddressStreet" />
+                </ComplexProperty>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

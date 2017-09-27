@@ -7,18 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SayHello
+namespace ComplexTypes
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class WeightByUnit
+    public partial class Address
     {
-        public int IngredientID { get; set; }
-        public int UnitID { get; set; }
-        public string Weight { get; set; }
-    
-        public virtual Ingredient Ingredient { get; set; }
-        public virtual Unit Unit { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
     }
 }

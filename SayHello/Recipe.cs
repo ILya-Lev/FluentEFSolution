@@ -23,11 +23,11 @@ namespace SayHello
         }
     
         public int RecipeID { get; set; }
-        public string Title { get; set; }
         public string Source { get; set; }
         public string Headnote { get; set; }
         public Nullable<int> TypeID { get; set; }
         public Nullable<int> CategoryID { get; set; }
+        public string RecipeName { get; set; }
     
         public virtual RecipeCategory RecipeCategory { get; set; }
         public virtual RecipeType RecipeType { get; set; }

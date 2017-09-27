@@ -19,7 +19,6 @@ namespace SayHello
         {
             this.RecipeIngredients = new HashSet<RecipeIngredient>();
             this.RecipeIngredients1 = new HashSet<RecipeIngredient>();
-            this.WeightByUnits = new HashSet<WeightByUnit>();
         }
     
         public int UnitID { get; set; }
@@ -30,7 +29,5 @@ namespace SayHello
         public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecipeIngredient> RecipeIngredients1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WeightByUnit> WeightByUnits { get; set; }
     }
 }

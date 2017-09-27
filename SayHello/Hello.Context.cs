@@ -12,6 +12,8 @@ namespace SayHello
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class FluentEFChapter01Entities : DbContext
     {
@@ -33,6 +35,68 @@ namespace SayHello
         public virtual DbSet<RecipeStep> RecipeSteps { get; set; }
         public virtual DbSet<RecipeType> RecipeTypes { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
-        public virtual DbSet<WeightByUnit> WeightByUnits { get; set; }
+    
+        public virtual int CreateRecipe(string title, string source, string headnote, Nullable<int> typeId, Nullable<int> categoryId, ObjectParameter recipeId)
+        {
+            var titleParameter = title != null ?
+                new ObjectParameter("title", title) :
+                new ObjectParameter("title", typeof(string));
+    
+            var sourceParameter = source != null ?
+                new ObjectParameter("source", source) :
+                new ObjectParameter("source", typeof(string));
+    
+            var headnoteParameter = headnote != null ?
+                new ObjectParameter("headnote", headnote) :
+                new ObjectParameter("headnote", typeof(string));
+    
+            var typeIdParameter = typeId.HasValue ?
+                new ObjectParameter("typeId", typeId) :
+                new ObjectParameter("typeId", typeof(int));
+    
+            var categoryIdParameter = categoryId.HasValue ?
+                new ObjectParameter("categoryId", categoryId) :
+                new ObjectParameter("categoryId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateRecipe", titleParameter, sourceParameter, headnoteParameter, typeIdParameter, categoryIdParameter, recipeId);
+        }
+    
+        public virtual int DeleteRecipe(Nullable<int> recipeId)
+        {
+            var recipeIdParameter = recipeId.HasValue ?
+                new ObjectParameter("recipeId", recipeId) :
+                new ObjectParameter("recipeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteRecipe", recipeIdParameter);
+        }
+    
+        public virtual int UpdateRecipe(Nullable<int> recipeId, string title, string source, string headnote, Nullable<int> typeId, Nullable<int> categoryId)
+        {
+            var recipeIdParameter = recipeId.HasValue ?
+                new ObjectParameter("recipeId", recipeId) :
+                new ObjectParameter("recipeId", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("title", title) :
+                new ObjectParameter("title", typeof(string));
+    
+            var sourceParameter = source != null ?
+                new ObjectParameter("source", source) :
+                new ObjectParameter("source", typeof(string));
+    
+            var headnoteParameter = headnote != null ?
+                new ObjectParameter("headnote", headnote) :
+                new ObjectParameter("headnote", typeof(string));
+    
+            var typeIdParameter = typeId.HasValue ?
+                new ObjectParameter("typeId", typeId) :
+                new ObjectParameter("typeId", typeof(int));
+    
+            var categoryIdParameter = categoryId.HasValue ?
+                new ObjectParameter("categoryId", categoryId) :
+                new ObjectParameter("categoryId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateRecipe", recipeIdParameter, titleParameter, sourceParameter, headnoteParameter, typeIdParameter, categoryIdParameter);
+        }
     }
 }
