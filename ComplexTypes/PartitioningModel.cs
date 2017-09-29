@@ -7,23 +7,3 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ComplexTypes
-{
-	using System.Data.Entity;
-	using System.Data.Entity.Infrastructure;
-
-	public partial class SplitModelContext : DbContext
-	{
-		public SplitModelContext()
-			: base("name=SplitModelConnetion")
-		{
-		}
-
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
-		{
-			throw new UnintentionalCodeFirstException();
-		}
-
-		public virtual DbSet<SplitCustomer> SplitCustomers { get; set; }
-	}
-}
