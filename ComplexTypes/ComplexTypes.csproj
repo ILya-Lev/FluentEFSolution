@@ -61,6 +61,9 @@
     <Compile Include="Address.cs">
       <DependentUpon>ComplexTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="BackedGood.cs">
+      <DependentUpon>TPHModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ComplexTypes.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +129,48 @@
     <Compile Include="Supplier.cs">
       <DependentUpon>ComplexTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="TPHModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPHModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPHModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPHModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPHModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TPHRecipe.cs">
+      <DependentUpon>TPHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPTBakedGood.cs">
+      <DependentUpon>TPTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPTIngredient.cs">
+      <DependentUpon>TPTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPTModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPTModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPTModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPTModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TPTModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPTModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TPTRecipe.cs">
+      <DependentUpon>TPTModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -150,6 +195,20 @@
     </None>
     <None Include="SplitModel.edmx.diagram">
       <DependentUpon>SplitModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="TPTModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TPTModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="TPHModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TPHModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TPHModel.edmx.diagram">
+      <DependentUpon>TPHModel.edmx</DependentUpon>
+    </None>
+    <None Include="TPTModel.edmx.diagram">
+      <DependentUpon>TPTModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +241,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SplitModel.edmx</DependentUpon>
       <LastGenOutput>SplitModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="TPHModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPHModel.edmx</DependentUpon>
+      <LastGenOutput>TPHModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TPHModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPHModel.edmx</DependentUpon>
+      <LastGenOutput>TPHModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="TPTModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPTModel.edmx</DependentUpon>
+      <LastGenOutput>TPTModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TPTModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPTModel.edmx</DependentUpon>
+      <LastGenOutput>TPTModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

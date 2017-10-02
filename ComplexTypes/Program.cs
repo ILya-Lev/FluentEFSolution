@@ -8,7 +8,17 @@ namespace ComplexTypes
 	{
 		static void Main(string[] args)
 		{
-			TestSplitModel();
+			//TestSplitModel();
+			TestTablePerType();
+		}
+
+		private static void TestTablePerType()
+		{
+			using (var context = new TablePerTypeEntities())
+			{
+				var recipies = context.TPTRecipes.Where(r => r.TPTIngredients.Any(i => i is TPTBakedGood)).ToList();
+				Console.WriteLine(recipies.Count);
+			}
 		}
 
 		private static void TestSplitModel()

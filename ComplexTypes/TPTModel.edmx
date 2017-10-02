@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TPTNamespace.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TPTBakedGoods">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="IngredientID" Type="int" Nullable="false" />
+          <Property Name="BakersPercentage" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FatPercentage" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="LiquidPercentage" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TPTIngredient">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="IngredientID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Unit" Type="int" />
+          <Property Name="Preparation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TPTRecipe">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Headnote" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TPTBakedGoods_TPTIngredient">
+          <End Role="TPTIngredient" Type="Self.TPTIngredient" Multiplicity="1" />
+          <End Role="TPTBakedGoods" Type="Self.TPTBakedGoods" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TPTIngredient">
+              <PropertyRef Name="RecipeID" />
+              <PropertyRef Name="IngredientID" />
+            </Principal>
+            <Dependent Role="TPTBakedGoods">
+              <PropertyRef Name="RecipeID" />
+              <PropertyRef Name="IngredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TPTIngredient_TPTRecipe">
+          <End Role="TPTRecipe" Type="Self.TPTRecipe" Multiplicity="1" />
+          <End Role="TPTIngredient" Type="Self.TPTIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TPTRecipe">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="TPTIngredient">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TPTNamespaceStoreContainer">
+          <EntitySet Name="TPTBakedGoods" EntityType="Self.TPTBakedGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPTIngredient" EntityType="Self.TPTIngredient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TPTRecipe" EntityType="Self.TPTRecipe" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TPTBakedGoods_TPTIngredient" Association="Self.FK_TPTBakedGoods_TPTIngredient">
+            <End Role="TPTIngredient" EntitySet="TPTIngredient" />
+            <End Role="TPTBakedGoods" EntitySet="TPTBakedGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TPTIngredient_TPTRecipe" Association="Self.FK_TPTIngredient_TPTRecipe">
+            <End Role="TPTRecipe" EntitySet="TPTRecipe" />
+            <End Role="TPTIngredient" EntitySet="TPTIngredient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TPTNamespace" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TPTBakedGood" BaseType="TPTNamespace.TPTIngredient">
+          <Property Name="BakersPercentage" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FatPercentage" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LiquidPercentage" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TPTIngredient">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="IngredientID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Unit" Type="Int32" />
+          <Property Name="Preparation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TPTRecipe" Relationship="Self.FK_TPTIngredient_TPTRecipe" FromRole="TPTIngredient" ToRole="TPTRecipe" />
+        </EntityType>
+        <EntityType Name="TPTRecipe">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Headnote" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TPTIngredients" Relationship="Self.FK_TPTIngredient_TPTRecipe" FromRole="TPTRecipe" ToRole="TPTIngredient" />
+        </EntityType>
+        <Association Name="FK_TPTIngredient_TPTRecipe">
+          <End Role="TPTRecipe" Type="Self.TPTRecipe" Multiplicity="1" />
+          <End Role="TPTIngredient" Type="Self.TPTIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TPTRecipe">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="TPTIngredient">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TablePerTypeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TPTIngredients" EntityType="Self.TPTIngredient" />
+          <EntitySet Name="TPTRecipes" EntityType="Self.TPTRecipe" />
+          <AssociationSet Name="FK_TPTIngredient_TPTRecipe" Association="Self.FK_TPTIngredient_TPTRecipe">
+            <End Role="TPTRecipe" EntitySet="TPTRecipes" />
+            <End Role="TPTIngredient" EntitySet="TPTIngredients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TPTNamespaceStoreContainer" CdmEntityContainer="TablePerTypeEntities">
+          <EntitySetMapping Name="TPTIngredients">
+            <EntityTypeMapping TypeName="IsTypeOf(TPTNamespace.TPTIngredient)">
+              <MappingFragment StoreEntitySet="TPTIngredient">
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="Preparation" ColumnName="Preparation" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(TPTNamespace.TPTBakedGood)">
+              <MappingFragment StoreEntitySet="TPTBakedGoods">
+                <ScalarProperty Name="LiquidPercentage" ColumnName="LiquidPercentage" />
+                <ScalarProperty Name="FatPercentage" ColumnName="FatPercentage" />
+                <ScalarProperty Name="BakersPercentage" ColumnName="BakersPercentage" />
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TPTRecipes">
+            <EntityTypeMapping TypeName="TPTNamespace.TPTRecipe">
+              <MappingFragment StoreEntitySet="TPTRecipe">
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
+                <ScalarProperty Name="Headnote" ColumnName="Headnote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

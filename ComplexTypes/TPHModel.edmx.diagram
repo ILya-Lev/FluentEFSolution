@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9a21b53d9de4728baf28e4c464c3230" Name="Diagram1" ZoomLevel="150">
+        <EntityTypeShape EntityType="TablePerHierarchyNamespace.TPHRecipe" Width="1.5" PointX="2.875" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TablePerHierarchyNamespace.BackedGood" Width="1.5" PointX="5.875" PointY="1.875" />
+        <InheritanceConnector EntityType="TablePerHierarchyNamespace.BackedGood" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
