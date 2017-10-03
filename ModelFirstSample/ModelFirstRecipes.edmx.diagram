@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a4b571305bb54d7cb2bd4f61ddd22dc9" Name="Diagram1" DisplayType="true" ZoomLevel="150" >
+        <EntityTypeShape EntityType="ModelFirstRecipes.Recipe" Width="2.5" PointX="5.375" PointY="1" />
+        <EntityTypeShape EntityType="ModelFirstRecipes.RecipeIngredient" Width="2.75" PointX="7.625" PointY="3.625" />
+        <AssociationConnector Association="ModelFirstRecipes.RecipeRecipeIngredient" />
+        <EntityTypeShape EntityType="ModelFirstRecipes.RecipeStep" Width="2.125" PointX="3.625" PointY="3.875" />
+        <AssociationConnector Association="ModelFirstRecipes.RecipeRecipeStep" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
