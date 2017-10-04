@@ -1,0 +1,4 @@
+﻿
+This is the output of my very second T4 template.
+It was created on 2017-Oct-04.
+
