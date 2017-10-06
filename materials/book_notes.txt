@@ -1,0 +1,28 @@
+This method is used to execute SQL that does not return data. ExecuteSqlCommand()
+This method is used to determine whether the database exists on the server. Exists()
+This method is used to create a new database. Create()
+This method is used to determine whether an existing database matches the model. CompatibleWithModel()
+This method is used to delete a database. Delete()
+This method is used to execute a SQL query that returns data. SqlQuery<TElement>()
+This static method is used to determine how Entity Framework will initialize a DbContext. SetInitializer<TContext>()
+This method only creates a database if it doesn’t already exist. CreateIfNotExists()
+This method runs the IDatabaseInitializer.InitializeDatabase() method. Initialize()
+
+Database.InitializeDatabase(new CreateDatabaseIfNotExists<RecipeContext>);
+or
+Database.InitializeDatabase(); // as the option from above is a default one
+
+Column - property is a db table column, can contain column name
+ComplexType - speccifies that the property should be treated as a complex type instead of a 1-1 relation (usually it's done whenever te type has no primary key - e.g. address)
+ConcurrencyCheck - the property participates in optimistic concurrency checking; often used with timestamp
+DatabaseGenerated - tells engine to generate value for the property at db level
+ForeignKey - the property is a FK to another table
+InverseProperty - see http://www.entityframeworktutorial.net/code-first/inverseproperty-dataannotations-attribute-in-code-first.aspx
+Key -  PK contraint - one of the PK columns
+MaxLength - max array or string length
+MinLength - min array of string length
+NotMapped - the prop is not represented in db
+Required - the property must have a value
+StringLength - sets both min and max string length simultaneously
+Table - indicates that a class represents a table, can contain table name
+Timestamp - a property should be a timestamp and is updated prior to row saving

@@ -1,6 +1,7 @@
 ﻿using SampleCodeFirst.DataAccess;
 using SampleCodeFirst.Model;
 using System.Data.Entity;
+using System.Linq;
 
 namespace SampleCodeFirst.Console
 {
@@ -13,7 +14,8 @@ namespace SampleCodeFirst.Console
 
 		private static void CreateDatabase()
 		{
-			Database.SetInitializer(new DropCreateDatabaseAlways<RecipeContext>());
+			//Database.SetInitializer(new DropCreateDatabaseAlways<RecipeContext>());
+			Database.SetInitializer(new AlwaysCreateSeededDatabase());
 
 			var recipe = new Recipe
 			{
@@ -23,7 +25,8 @@ namespace SampleCodeFirst.Console
 
 			using (var context = new RecipeContext())
 			{
-				context.Recipes.Add(recipe);
+				if (!context.Recipes.Any(r => r.RecipeName == recipe.RecipeName && r.Headnote == recipe.Headnote))
+					context.Recipes.Add(recipe);
 				context.SaveChanges();
 			}
 		}
