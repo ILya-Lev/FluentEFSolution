@@ -12,7 +12,13 @@ namespace SampleCodeFirst.DataAccess
 		}
 
 		public DbSet<Recipe> Recipes { get; set; }
-		//public DbSet<RecipeIngredient> Ingredients { get; set; }
-		//public DbSet<RecipeStep> Steps { get; set; }
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
+			var recipeConfiguration = modelBuilder.Entity<Recipe>();
+
+			recipeConfiguration.Property(r => r.RecipeName).HasColumnName("Name").HasMaxLength(50).IsRequired();
+		}
 	}
 }
