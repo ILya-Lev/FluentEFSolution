@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlwaysCreateSeededDatabase.cs" />
+    <Compile Include="RecipeConfiguration.cs" />
     <Compile Include="RecipeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

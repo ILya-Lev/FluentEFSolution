@@ -16,9 +16,9 @@ namespace SampleCodeFirst.DataAccess
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			var recipeConfiguration = modelBuilder.Entity<Recipe>();
+			modelBuilder.Configurations.Add(new RecipeConfiguration());
 
-			recipeConfiguration.Property(r => r.RecipeName).HasColumnName("Name").HasMaxLength(50).IsRequired();
+			modelBuilder.Ignore<RecipeStep>();
 		}
 	}
 }
