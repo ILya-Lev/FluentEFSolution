@@ -8,7 +8,7 @@ namespace FinalSample.Model
 		public string RecipeName { get; set; }
 		public int RecipeSourceId { get; set; }
 		public string Headnote { get; set; }
-		public ICollection<RecipeSource> RecipeSources { get; set; }
+		public RecipeSource RecipeSource { get; set; }
 		public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
 		public ICollection<RecipeStep> RecipeSteps { get; set; }
 	}

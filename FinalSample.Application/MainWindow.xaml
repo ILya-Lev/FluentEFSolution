@@ -1,0 +1,40 @@
+﻿<Window x:Class="FinalSample.Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalSample.Application"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="375*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="123*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menu" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label x:Name="lblRecipeName" Content="_RecipeName: " Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="lblSource" Content="_Source: " Grid.Column="1" Grid.Row="2"/>
+        <TextBlock x:Name="txtRecipeName" Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock"/>
+        <TextBlock x:Name="txtSource" Grid.Column="3" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock"/>
+        <TextBox x:Name="txtDescription" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="TextBox"/>
+        <Label x:Name="lblIngredients" Content="Ingredients" Grid.Column="1" Grid.Row="6"/>
+        <Label x:Name="lblSteps" Content="Method" Grid.Column="3" Grid.Row="6"/>
+        <ListBox x:Name="listIngredients" Grid.Row="8" Grid.Column="1"/>
+        <ListBox x:Name="listSteps" Grid.Column="3" Grid.Row="8"/>
+    </Grid>
+</Window>

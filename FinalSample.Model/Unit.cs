@@ -8,6 +8,5 @@ namespace FinalSample.Model
 		public string ShortName { get; set; }
 		public string LongName { get; set; }
 		public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
-
 	}
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace FinalSample.Model
+﻿namespace FinalSample.Model
 {
 	public class RecipeIngredient
 	{
@@ -9,7 +7,7 @@ namespace FinalSample.Model
 		public string Name { get; set; }
 		public decimal Amount { get; set; }
 		public int UnitId { get; set; }
-		public ICollection<Recipe> Recipes { get; set; }
-		public ICollection<Unit> Units { get; set; }
+		public Recipe Recipe { get; set; }
+		public Unit Unit { get; set; }
 	}
 }
