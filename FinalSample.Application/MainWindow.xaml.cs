@@ -1,4 +1,5 @@
 ﻿using FinalSample.DataAccess;
+using FinalSample.Model;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -23,7 +24,10 @@ namespace FinalSample.Application
 		{
 			using (var context = new RecipeContext())
 			{
-				var recipe = context.Recipes.FirstOrDefault();
+				var recipe = context.Recipes.Include(nameof(Recipe.RecipeSteps))
+											.Include(nameof(Recipe.RecipeIngredients))
+											.Include(nameof(Recipe.RecipeSource))
+											.FirstOrDefault();
 				if (recipe == null) return;
 
 				txtRecipeName.Text = recipe.RecipeName;

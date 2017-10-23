@@ -34,7 +34,7 @@
         <TextBox x:Name="txtDescription" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="TextBox"/>
         <Label x:Name="lblIngredients" Content="Ingredients" Grid.Column="1" Grid.Row="6"/>
         <Label x:Name="lblSteps" Content="Method" Grid.Column="3" Grid.Row="6"/>
-        <ListBox x:Name="listIngredients" Grid.Row="8" Grid.Column="1"/>
-        <ListBox x:Name="listSteps" Grid.Column="3" Grid.Row="8"/>
+        <ListBox x:Name="listIngredients" Grid.Row="8" Grid.Column="1" TextOptions.TextFormattingMode="Display"/>
+        <ListBox x:Name="listSteps" Grid.Column="3" Grid.Row="8" TextOptions.TextFormattingMode="Display"/>
     </Grid>
 </Window>
